@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SeletorRoleta : MonoBehaviour
 {
-    // Start is called before the first frame update
+    
     public GameObject Roleta;
     void Start()
     {
@@ -17,6 +17,8 @@ public class SeletorRoleta : MonoBehaviour
         
     }
 
+
+    // Verificador de colisão que detecta a fatia selecionada e passa seu valor para RoletaScript
     public void OnTriggerEnter2D(Collider2D other) 
     {
         if(other.CompareTag("FatiaRoleta"))

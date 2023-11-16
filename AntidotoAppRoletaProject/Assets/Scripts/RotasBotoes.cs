@@ -10,6 +10,7 @@ public class RotasBotoes : MonoBehaviour
 
     public GameObject Roleta;
 
+    // Metodos que fazem a seleção das telas a serem mostradas com base no botão apertado 
     public void Comecar()
     {
         InicioPage.SetActive(false);
@@ -25,6 +26,6 @@ public class RotasBotoes : MonoBehaviour
     {
         FimPage.SetActive(false);
         RoletaPage.SetActive(true);
-        Roleta.GetComponent<RoletaScript>().Reiniciar();
+        Roleta.GetComponent<RoletaScript>().Reiniciar(); // Executa o método Reiniciar do RoletaScript 
     }
 }
