@@ -12,6 +12,7 @@ public class RoletaScript : MonoBehaviour
     [SerializeField] private int Pontos;
     [SerializeField] private int PontosGanhos;
     public bool RoletaRodando;
+    public bool RoletaLiberada;
     public bool Finalizar;
 
     [SerializeField] private int Venceu;
@@ -22,6 +23,8 @@ public class RoletaScript : MonoBehaviour
 
     public GameObject TextoFim;
     public GameObject RotasBotoes;
+    public GameObject TelaPontosGanhos;
+    public Text TxtPontosGanhos;
 
     void Start()
     {
@@ -37,9 +40,12 @@ public class RoletaScript : MonoBehaviour
         if(VelocidadeAngularAtual == 0 && RoletaRodando)
         {
             Pontos += PontosGanhos;
-            RoletaRodando = false;
+            TelaPontosGanhos.SetActive(true);
+            TxtPontosGanhos.text = PontosGanhos.ToString();  
+            RoletaLiberada = false; 
+            RoletaRodando = false;        
         }
-        if(!RoletaRodando)
+        if(!RoletaRodando && RoletaLiberada)
         {
             for(int i = 0; i < ValoresFatias.Length; i++)
             {
@@ -57,7 +63,7 @@ public class RoletaScript : MonoBehaviour
             Finalizar = true;
         }
 
-        if(Finalizar)
+        if(Finalizar && RoletaLiberada)
         {
             if(Pontos == 21)
             {
